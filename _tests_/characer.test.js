@@ -50,7 +50,7 @@ describe('Character', () => {
 
   test('should add the bonus from an item to a characters stats', () => {
     const mario = new Character(5, 5, 5, 1, 20);
-    let hammer = new Item("strength",7,10)
+    let hammer = new Item(1,7,10)
     mario.addItemToInventory(hammer);
     expect(mario.strength).toEqual(12);
   });

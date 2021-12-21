@@ -36,9 +36,16 @@ export default class Character {
   addItemToInventory(item){
     if(this.inventory.length < 4) {
       this.inventory.push(item)
-      let stat = item.stat
-      this.stat += item.bonus
-      return this.stat
+      if ( item.stat === 1) {
+        this.strength += item.bonus;
+        return this.strength;
+      } else if ( item.stat === 2) {
+        this.dexterity += item.bonus;
+        return this.dexterity;
+      } else {
+        this.hitpoints += item.bonus;
+        return this.hitpoints;
+      }
     }
   }
 }
