@@ -54,4 +54,13 @@ describe('Character', () => {
     mario.addItemToInventory(hammer);
     expect(mario.strength).toEqual(12);
   });
+
+  test('should add unique id to an item on creation and increase currentItemId count', () => {
+    const mario = new Character(5, 5, 5, 1, 20);
+    let hammer = new Item(1,7,10)
+    mario.addItemToInventory(hammer);
+    expect(mario.currentItemId).toEqual(1);
+    expect(hammer.id).toEqual(1);
+  });
+
 });

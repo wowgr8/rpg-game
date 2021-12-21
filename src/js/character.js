@@ -6,6 +6,7 @@ export default class Character {
     this.level = level;
     this.money = money;
     this.inventory = [];
+    this.currentItemId = 0;
   }
 
   levelUp(){
@@ -36,6 +37,7 @@ export default class Character {
   addItemToInventory(item){
     if(this.inventory.length < 4) {
       this.inventory.push(item)
+      item.id = this.assaignItemId()
       if ( item.stat === 1) {
         this.strength += item.bonus;
         return this.strength;
@@ -45,6 +47,21 @@ export default class Character {
       } else {
         this.hitpoints += item.bonus;
         return this.hitpoints;
+      }
+    }
+  }
+
+  assaignItemId() {
+    this.currentItemId += 1;
+    return this.currentItemId;
+  }
+
+  findItem(id) {
+    for(let i=0;i < this.inventory.length; i++) {
+      if (this.inventory[i]) {
+        if (this.iinventory[i].id == id){
+          return this.inventory[i];
+        }
       }
     }
   }
