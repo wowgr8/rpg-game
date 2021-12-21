@@ -63,4 +63,13 @@ describe('Character', () => {
     expect(hammer.id).toEqual(1);
   });
 
+  test('should remove an item from the inventory of a character', () => {
+    const mario = new Character(5, 5, 5, 1, 20);
+    let hammer = new Item(1,7,10);
+    let shield = new Item(2, 5, 10);
+    mario.addItemToInventory(hammer);
+    mario.addItemToInventory(shield)
+    mario.deleteItem(hammer.id);
+    expect(mario.inventory.length).toEqual(1);
+  });
 });

@@ -59,10 +59,22 @@ export default class Character {
   findItem(id) {
     for(let i=0;i < this.inventory.length; i++) {
       if (this.inventory[i]) {
-        if (this.iinventory[i].id == id){
+        if (this.inventory[i].id == id){
           return this.inventory[i];
         }
       }
     }
   }
+
+  deleteItem(id){
+    for (let i = 0; i < this.inventory.length; i++) {
+      if (this.inventory[i]) {
+        if (this.inventory[i].id == id) {
+          this.inventory.splice(this.inventory[i], 1)
+          return true;
+        }
+      }
+    }
+    return false;
+  };
 }
